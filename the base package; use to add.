@@ -1,0 +1,20 @@
+target R.java/Manifest.java: Camera (out/target/common/obj/APPS/Camera_intermediates/src/R.stamp)
+device/htc/bravo/overlay/packages/apps/Camera/res/values/config.xml:24: error: Resource at touchFocusParameter appears in overlay but not in the base package; use <add-resource> to add.
+make: *** [out/target/common/obj/APPS/Camera_intermediates/src/R.stamp] Error 1
+jay@shelley:~/android/gingerbread$
+修改文件：
+
+<resources>
+    <!-- Autofocus parameters -->
+    <string name="touchFocusParameter">touch-focus</string>
+</resources>
+<resources>
+    <!-- Autofocus parameters -->
+    <add-resource type="string" name="touchFocusParameter" />
+    <string name="touchFocusParameter">touch-focus</string>
+</resources>
+
+红色部分为添加部分。
+采取了 http://www.poemcode.net/2010/09/android-sdk-addon/  中 添加 Overlay(Add Resoruce) 的解释。
+
+
